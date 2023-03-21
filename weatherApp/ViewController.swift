@@ -10,6 +10,8 @@ import CoreLocation
 
 class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate {
     
+    @IBOutlet weak var conditionsLabel: UILabel!
+    
     @IBOutlet weak var searchTextField: UITextField!
     
     @IBOutlet weak var weatherImage: UIImageView!
@@ -19,6 +21,10 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
     @IBOutlet weak var locationName: UILabel!
     
     let locationManager = CLLocationManager()
+    
+    var cel: Float = 0.00
+    var far: Float = 0.00
+    var toggle = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +62,16 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         
     }
     
+    @IBAction func tempratureTypeBtn(_ sender: UIButton) {
+        if toggle {
+            tempratureLabel.text = "\(far)°F"
+            toggle = false
+        } else {
+            tempratureLabel.text = "\(cel)°C"
+            toggle = true
+        }
+    }
+    
     @IBAction func searchLocation(_ sender: UIButton) {
         loadWeather(search: searchTextField.text)
     }
@@ -86,6 +102,9 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
                 print(weatherResponse.current.temp_c)
                 print(weatherResponse.current.condition)
                 
+                self.cel = weatherResponse.current.temp_c
+                self.far = weatherResponse.current.temp_f
+                
                 self.setImageFromUrl("https:\(weatherResponse.current.condition.icon)", on: self.weatherImage)
                 DispatchQueue.main.async {
                     
@@ -104,6 +123,8 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
                     
                     self.locationName.text = weatherResponse.location.name
                     self.tempratureLabel.text = "\(weatherResponse.current.temp_c)°C"
+                    self.conditionsLabel.text = weatherResponse.current.condition.text
+                    
                 }
             }
         }
@@ -164,6 +185,7 @@ struct Location: Decodable {
 
 struct Weather: Decodable {
     let temp_c: Float
+    let temp_f: Float
     let is_day: Int
     let condition: Conditions
 }

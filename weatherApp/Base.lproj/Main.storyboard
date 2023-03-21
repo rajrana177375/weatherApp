@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="w4Q-ZL-6hm">
-                                <rect key="frame" x="14" y="73" width="363" height="36"/>
+                                <rect key="frame" x="16" y="73" width="363" height="36"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1w-fO-sre">
                                         <rect key="frame" x="0.0" y="0.0" width="49.333333333333336" height="36"/>
@@ -47,7 +47,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="BA6-xN-aRE">
-                                <rect key="frame" x="75.666666666666686" y="207" width="240" height="438"/>
+                                <rect key="frame" x="76.666666666666686" y="207" width="240" height="438"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ais-uI-IwV">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -67,11 +67,25 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="isN-jN-Oo4">
-                                        <rect key="frame" x="60.333333333333329" y="238.33333333333331" width="118.99999999999999" height="199.66666666666669"/>
+                                        <rect key="frame" x="60.333333333333329" y="238.33333333333331" width="118.99999999999999" height="31.333333333333314"/>
                                         <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="27"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfa-O0-3ye">
+                                        <rect key="frame" x="99.333333333333329" y="296.66666666666669" width="41.333333333333329" height="20.333333333333314"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6V-wa-IKq">
+                                        <rect key="frame" x="82.333333333333343" y="344" width="75.333333333333343" height="94"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Toggle"/>
+                                        <connections>
+                                            <action selector="tempratureTypeBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xIL-g5-bjw"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="26t-xQ-Ffc"/>
@@ -91,6 +105,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="conditionsLabel" destination="pfa-O0-3ye" id="QNn-3v-dNf"/>
                         <outlet property="locationName" destination="isN-jN-Oo4" id="Ra0-7X-I8W"/>
                         <outlet property="searchTextField" destination="AlZ-QA-kx5" id="tCY-JU-naE"/>
                         <outlet property="tempratureLabel" destination="xTw-Uv-GYb" id="dhH-RC-gty"/>
